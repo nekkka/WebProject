@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { Category } from '../models';
+import { Product } from '../models';
 
 @Component({
   selector: 'app-home',
@@ -10,4 +12,6 @@ import { RouterModule } from '@angular/router';
 })
 export class HomeComponent {
 
+
+ 
 }
