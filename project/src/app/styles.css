@@ -1,0 +1,72 @@
+/* Стили для header, которые вы оставили без изменений */
+
+.header {
+  background-color: rgb(243, 207, 207);
+  color: #000000;
+  padding: 10px 0;
+  margin: 0; /* Убираем все отступы */
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0; /* Убираем внутренние отступы */
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.logo span {
+  font-size: 14px;
+}
+
+.contact-info p {
+  margin: 10px; /* Убираем внутренние отступы у абзацев */
+  display: inline-block; /* Делаем элементы блоками в одной строке */
+}
+
+.contact-info p img {
+  margin-left: 20px;
+}
+
+/* Стили для контейнера букета */
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.container h1 {
+  text-align: center;
+}
+
+.container img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+.details {
+  margin-top: 20px;
+}
+
+.details p {
+  margin-bottom: 10px;
+}
+
+/* Добавленный стиль для ссылки на страницу детальной информации */
+
+.container a {
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+  text-decoration: none;
+  color: inherit;
+}

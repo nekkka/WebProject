@@ -1,18 +1,13 @@
+
 import { Component } from '@angular/core';
-import { category } from './categories';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
+  standalone: true, // Добавляем флаг standalone: true
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  categories = category;
+  title = 'my-angular-app';
 }
-
-
-/*
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at https://angular.io/license
-*/
