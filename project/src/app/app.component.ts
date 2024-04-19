@@ -14,20 +14,10 @@ import { CartComponent } from './cart/cart.component';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'my-angular-app';
+  title = 'project';
 
 
 
-  share(product: any) {
-    const message = `Можно посмтреть${product.name}, зашел(а) по ссылке ${product.buyLink}`;
-    const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
-  }
-
-  buy(link: string) {
-    console.log('Buy link:', link);
-    window.open(link, '_blank');
-  }
 
   openWhatsAppLink() {
     const link = "https://wa.me/7777777777";

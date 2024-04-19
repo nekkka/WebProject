@@ -9,14 +9,12 @@
     <div class="pic-image"></div>
   </div>
   
+  <br>
   <div class="green-border">
-   <!--  <div class="green-box">
-       <a *ngFor="let category of categories" [routerLink]="['/categories', category.name]"> {{ category.name }} </a>
-      </div>-->
-    <p class="green-box">Розы</p>
-    <p class="green-box">Пионы</p>
-    <p class="green-box">Шары</p>
+  <div>
+    <p class="green-box" *ngFor="let category of categories">{{ category.name }}</p>
   </div>
+</div>
   
   
   
