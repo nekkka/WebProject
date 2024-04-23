@@ -1,1 +1,7 @@
 <h1>robit</h1>
+<div *ngFor="let product of products">
+    <div *ngIf="product.categoryName === categoryName">
+        <p>{{ product.name }}</p>
+        <p>{{ product.price }} ₸</p>
+    </div>
+</div>

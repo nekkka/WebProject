@@ -11,9 +11,9 @@
   
   <br>
   <div class="green-border">
-  <div>
-    <p class="green-box" *ngFor="let category of categories">{{ category.name }}</p>
-  </div>
+    <p class="green-box" *ngFor="let category of categories" (click)="navigateToCategory(category.id)">
+      {{ category.name }}
+    </p>
 </div>
   
   

@@ -5,7 +5,7 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 
 export const routes: Routes = [
     { path: '', redirectTo: 'main', pathMatch: 'full' },
-    { path: 'main', component: HomeComponent, title: 'FlowersMain' },
-    { path: 'cart', component: CartComponent, title: 'Cart' },
-    {path: 'category/:categoryId',component: ProductDetailsComponent, title: 'Album Details' },
+    { path: 'main', component: HomeComponent, title: 'Главная страница' },
+    { path: 'cart', component: CartComponent, title: 'Корзина' },
+    {path: 'category/:categoryId',component: ProductDetailsComponent, title: 'Все продукты товара' },
 ];

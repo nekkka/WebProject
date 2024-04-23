@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { Category } from '../models';
 import { Product } from '../models';
 import { CommonModule } from '@angular/common';
@@ -18,8 +18,14 @@ export class HomeComponent {
   categories: Category[] = [];
   products: Product[] = [];
 
+  constructor(private route: ActivatedRoute, private router: Router) { }
+
   ngOnInit(): void {
     this.categories = category;
+  }
+
+  navigateToCategory(categoryId: number): void {
+    this.router.navigate(['/category', categoryId]);
   }
 
 }
