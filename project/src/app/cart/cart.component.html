@@ -1,21 +1,8 @@
-<body>
-    <header>
-      <h1>Ваша корзина</h1>
-    </header>
-    
-    <main>
-      <div class="cart-item">
-        <img src="product1.jpg" alt="Product 1" class="product-image">
-        <div class="product-details">
-          <h2>Product 1</h2>
-          <p>Цена: $10</p>
-          <p>Количество: 1</p>
-        </div>
-      </div>
-    </main>
-    
-    <footer>
-      <p>Общая сумма: $10</p>
-      <button>Оплатить</button>
-    </footer>
-  </body>
+<h3>Cart</h3>
+
+<div class="cart-item" *ngFor="let item of items">
+    <span>{{ item.name }} </span>
+    <span>{{ item.price }} ₸</span>
+</div>
+
+<button type="button" (click)="clearCart()">Clear Cart</button>

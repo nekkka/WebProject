@@ -4,6 +4,8 @@ import { Category } from '../models';
 import { Product } from '../models';
 import { CommonModule } from '@angular/common';
 import { category } from '../models';
+import { CartService } from '../cart.service';
+import { ProductDetailsComponent } from '../product-details/product-details.component';
 
 @Component({
   selector: 'app-home',
@@ -14,10 +16,10 @@ import { category } from '../models';
 })
 export class HomeComponent {
   categories: Category[] = [];
+  products: Product[] = [];
 
   ngOnInit(): void {
     this.categories = category;
-    
   }
 
 }

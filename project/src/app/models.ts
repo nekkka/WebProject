@@ -43,5 +43,5 @@ export interface Product {
     image: string;
     images: string[];
     rating: number;
-    categoryName: string;
+    categoryName: Category;
   }
