@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path
-from api.views import *
+from views import *
 
 urlpatterns = [
     path('categories/<int:id>/', get_category_by_id),
