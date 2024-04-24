@@ -32,7 +32,16 @@ export class ProductDetailsComponent implements OnInit {
 
 
   addToCart(product: Product): void {
-    this.cartService.addToCart(product); // Add product to cart
+    this.cartService.addToCart(product).subscribe({
+      next: (response) => {
+        console.log('Product added to cart:', response);
+        // Optionally, update UI or local state here
+      },
+      error: (error) => {
+        console.error('Failed to add product to cart:', error);
+        // Handle errors (e.g., show error message to user)
+      }
+    });
   }
 
 }

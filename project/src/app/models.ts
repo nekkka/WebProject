@@ -46,6 +46,12 @@ export interface Product {
     categoryName: Category["id"];
   }
 
+  export interface CartItem {
+    id: number;
+    product: Product;
+    cart: number;  // Assuming this represents the cart ID
+}
+
 //   export const products = [
 //     {
 //         id: 1,

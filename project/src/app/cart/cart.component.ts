@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { Product } from '../models';
+import { Component, OnInit } from '@angular/core';
+import { CartItem, Product } from '../models';
 import { CartService } from '../cart.service';
 import { CommonModule } from '@angular/common';
 
@@ -11,14 +11,15 @@ import { CommonModule } from '@angular/common';
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.css'
 })
-export class CartComponent {
-  items = this.cartService.getItems();
+export class CartComponent implements OnInit {
+  items: CartItem[] = [];
 
-  constructor (
-    private cartService: CartService
-  ) {} 
-  
-  clearCart(){
-    this.items = this.cartService.clearCart();
+  constructor(private cartService: CartService) { }
+
+  ngOnInit(): void {
+    this.cartService.getItems().subscribe({
+      next: (items) => this.items = items,
+      error: (error) => console.error('Error fetching cart items', error)
+    });
   }
 }

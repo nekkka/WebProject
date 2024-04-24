@@ -5,7 +5,7 @@ from django.shortcuts import render
 from rest_framework import generics, status
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
-from .serializers import UserSerializer, UserLoginSerializer, TokenSerializer, ProductSerializer, CategorySerializer, ReviewSerializer, CartProductSerializer
+from .serializers import *
 from .models import Product, Category, Review, Cart, CartProduct
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
@@ -190,7 +190,7 @@ def cart_add(request):
         return Response({"message": "Product already in cart"}, status=status.HTTP_200_OK)
 
     # Add product to the cart
-    serializer = CartProductSerializer(data={'cart': cart.id, 'product': product_id})
+    serializer = CartProductSerializerForAdd(data={'cart': cart.id, 'product': product_id})
     if serializer.is_valid():
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
@@ -223,3 +223,30 @@ def cart_checkout(request):
     cart.save()
 
     return Response("Спасибо за покупку!", status=status.HTTP_200_OK)
+
+
+@api_view(['GET'])
+def cart_list(request):
+    # Create an instance of JWTAuthentication
+    jwt_authentication = JWTAuthentication()
+
+    # Authenticate the request
+    auth_result = jwt_authentication.authenticate(request)
+
+    # Check if authentication succeeded
+    if auth_result is None:
+        return Response({"error": "Authentication required"}, status=status.HTTP_401_UNAUTHORIZED)
+
+    # Unpack the authentication result
+    user, _ = auth_result
+    user_id = user.id
+
+    # Get the active cart for the user
+    cart = get_object_or_404(Cart, user_id=user_id, status=1)  # Assuming status=1 means active
+
+    # Retrieve all cart products for the cart
+    cart_products = CartProduct.objects.filter(cart=cart)
+
+    # Serialize the data
+    serializer = CartProductSerializer(cart_products, many=True)
+    return Response(serializer.data)
