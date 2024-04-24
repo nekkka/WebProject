@@ -14,5 +14,4 @@ urlpatterns = [
     path('reviews/<int:pk>/', review_detail, name='review-detail'),
     path('cart/add/', cart_add, name='cart_add'),
     path('cart/checkout/', cart_checkout, name='cart_checkout'),
-    path('categories/<int:category_id>/products/', product_list_by_category, name='product-list-by-category'),
-]
+    ]

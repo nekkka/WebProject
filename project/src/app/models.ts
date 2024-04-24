@@ -46,15 +46,15 @@ export interface Product {
     categoryName: Category["id"];
   }
 
-  export const products = [
-    {
-        id: 1,
-        name: 'Букет слезы вебки',
-        price: 20,
-        description: 'sdfgh',
-        image: 'sdfgh',
-        images: ['sdfgh'],
-        rating: 852,
-        categoryNameID: 1
-    },
-  ]
+//   export const products = [
+//     {
+//         id: 1,
+//         name: 'Букет слезы вебки',
+//         price: 20,
+//         description: 'sdfgh',
+//         image: 'sdfgh',
+//         images: ['sdfgh'],
+//         rating: 852,
+//         categoryNameID: 1
+//     },
+//   ]

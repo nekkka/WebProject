@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Category, Product, products } from '../models';
+import { Category, Product } from '../models';
 import { ActivatedRoute } from '@angular/router';
 import { AppService } from '../app.service';
 import { CommonModule } from '@angular/common';
@@ -12,21 +12,20 @@ import { CommonModule } from '@angular/common';
   styleUrl: './product-details.component.css'
 })
 export class ProductDetailsComponent implements OnInit {
-  products = [...products];
+  products : Product[] = [];
   //categoryName: string | null = null;
 
-  constructor(private route: ActivatedRoute,) {}
+  constructor(private route: ActivatedRoute, private appService: AppService) {}
   
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       const categoryId = Number(params.get('categoryId'));
-    /*  console.log(categoryId)
-      console.log(products)*/
-      if (categoryId) {
-        this.products = products.filter(product => product.categoryNameID == categoryId);
-      } else {
-        this.products = products;
-      }
+      this.appService.getProductsByCategoryId(categoryId).subscribe(
+        products => {
+          this.products = products
+        }
+      )
+   
     });
   }
 
