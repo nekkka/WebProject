@@ -1,8 +1,11 @@
 <h3>Cart</h3>
 
 <div class="cart-item" *ngFor="let item of items">
-    <span>{{ item.name }} </span>
-    <span>{{ item.price }} ₸</span>
+    <img src="{{ item.image_url }}" alt="Product Image" height="150px">
+    <h1>{{ item.name }} </h1>
+    <br>
+    <h1>{{ item.price }} ₸</h1>
 </div>
 
-<button type="button" (click)="clearCart()">Clear Cart</button>
+<button type="button" (click)="clearCart()">Очистить корзину</button>
+<!--<button type="button" (click)="">Купить товар</button>-->

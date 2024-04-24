@@ -40,9 +40,9 @@ export interface Product {
     name: string;
     price: number;
     description: string;
-    image: string;
+    image_url: string;
     images: string[];
-    rating: number;
+    reviews: number;
     categoryName: Category["id"];
   }
 

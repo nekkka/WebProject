@@ -3,6 +3,7 @@ import { Category, Product } from '../models';
 import { ActivatedRoute } from '@angular/router';
 import { AppService } from '../app.service';
 import { CommonModule } from '@angular/common';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-product-details',
@@ -15,7 +16,7 @@ export class ProductDetailsComponent implements OnInit {
   products : Product[] = [];
   //categoryName: string | null = null;
 
-  constructor(private route: ActivatedRoute, private appService: AppService) {}
+  constructor(private route: ActivatedRoute, private appService: AppService, private cartService: CartService ) {}
   
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
@@ -27,6 +28,11 @@ export class ProductDetailsComponent implements OnInit {
       )
    
     });
+  }
+
+
+  addToCart(product: Product): void {
+    this.cartService.addToCart(product); // Add product to cart
   }
 
 }
