@@ -43,7 +43,7 @@ export interface Product {
     image: string;
     images: string[];
     rating: number;
-    categoryName: Category;
+    categoryName: Category["id"];
   }
 
   export const products = [
@@ -55,6 +55,6 @@ export interface Product {
         image: 'sdfgh',
         images: ['sdfgh'],
         rating: 852,
-        categoryName: 'Готовые букеты'
+        categoryName: 1
     },
   ]

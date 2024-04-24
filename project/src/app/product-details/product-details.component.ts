@@ -13,15 +13,17 @@ import { CommonModule } from '@angular/common';
 })
 export class ProductDetailsComponent implements OnInit {
   products = [...products];
-  categoryName: string | null = null;
+  //categoryName: string | null = null;
 
   constructor(private route: ActivatedRoute,) {}
   
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
-      const categoryName = params.get('categoryName');
+      const categoryName = Number(params.get('categoryId'));
+      console.log(categoryName)
+      console.log(products)
       if (categoryName) {
-        this.products = products.filter(product => product.categoryName === categoryName);
+        this.products = products.filter(product => product.categoryName == categoryName);
       } else {
         this.products = products;
       }
