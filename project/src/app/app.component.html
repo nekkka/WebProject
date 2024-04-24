@@ -10,7 +10,14 @@
 
     </div>
 
-    <div class = "user"><p><a routerLink="/login"><img src="assets/user.png" width="30"></a></p> </div>
+
+  <div class="user">
+    <!-- If not logged in, show login link -->
+    <p *ngIf="!isLoggedIn"><a routerLink="/login"><img src="assets/user.png" width="30"></a></p>
+    
+    <!-- If logged in, show logout link -->
+    <p *ngIf="isLoggedIn"><a (click)="logout()"><img src="assets/logout.png" width="30"></a></p>
+  </div>
 
 
     <div class="contact-info">
