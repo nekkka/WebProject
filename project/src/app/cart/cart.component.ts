@@ -3,6 +3,7 @@ import { Product } from '../models';
 import { CartService } from '../cart.service';
 import { CommonModule } from '@angular/common';
 
+
 @Component({
   selector: 'app-cart',
   standalone: true,

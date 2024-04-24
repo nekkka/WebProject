@@ -4,11 +4,13 @@ import { AuthService } from '../auth.service';
 import { Emitters } from '../emitters/emitters';
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
+import { RouterModule } from '@angular/router';
+import { RegisterComponent } from '../register/register.component';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule], 
+  imports: [ReactiveFormsModule, RouterModule], 
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
