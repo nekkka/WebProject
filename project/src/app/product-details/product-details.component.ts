@@ -19,11 +19,11 @@ export class ProductDetailsComponent implements OnInit {
   
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
-      const categoryName = Number(params.get('categoryId'));
-      console.log(categoryName)
-      console.log(products)
-      if (categoryName) {
-        this.products = products.filter(product => product.categoryName == categoryName);
+      const categoryId = Number(params.get('categoryId'));
+    /*  console.log(categoryId)
+      console.log(products)*/
+      if (categoryId) {
+        this.products = products.filter(product => product.categoryNameID == categoryId);
       } else {
         this.products = products;
       }

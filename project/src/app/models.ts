@@ -55,6 +55,6 @@ export interface Product {
         image: 'sdfgh',
         images: ['sdfgh'],
         rating: 852,
-        categoryName: 1
+        categoryNameID: 1
     },
   ]
