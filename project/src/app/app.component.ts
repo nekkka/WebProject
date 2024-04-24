@@ -5,11 +5,13 @@ import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { Category } from './models';
 import { CartComponent } from './cart/cart.component';
+import { HttpClientModule } from '@angular/common/http';
+import { AppService } from './app.service';
 
 @Component({
   selector: 'app-root',
   standalone: true, 
-  imports: [RouterOutlet, RouterModule, HomeComponent],
+  imports: [RouterOutlet, RouterModule, HomeComponent, HttpClientModule],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })

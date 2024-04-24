@@ -10,11 +10,11 @@
   </div>
   
   <br>
-  <div class="green-border">
+  <div *ngIf = "categories" class="green-border">
     <p class="green-box" *ngFor="let category of categories" (click)="navigateToCategory(category.id)">
       {{ category.name }}
     </p>
-</div>
+  </div>
   
   
   
