@@ -33,6 +33,11 @@ header {
   margin-left: 28px;
 
 }
+
+.user{
+  position: absolute;
+  margin-left: 95%;
+}
  
 
   .contact-info p {
