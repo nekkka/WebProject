@@ -183,6 +183,11 @@ def cart_add(request):
     except Cart.DoesNotExist:
         # If no open cart exists, create a new one
         cart = Cart.objects.create(user_id=user_id, price=product.price, status=1)
+    
+    existing_cart_product = CartProduct.objects.filter(cart=cart, product=product).first()
+
+    if existing_cart_product:
+        return Response({"message": "Product already in cart"}, status=status.HTTP_200_OK)
 
     # Add product to the cart
     serializer = CartProductSerializer(data={'cart': cart.id, 'product': product_id})

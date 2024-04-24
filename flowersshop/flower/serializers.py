@@ -34,9 +34,23 @@ class TokenSerializer(serializers.Serializer):
 
 
 class ProductSerializer(serializers.ModelSerializer):
+    reviews_count = serializers.SerializerMethodField()
+
     class Meta:
         model = Product
-        fields = ['id', 'name', 'image_url', 'price', 'average_rating', 'category', 'description']
+        fields = ['id', 'name', 'image_url', 'price', 'average_rating', 'category', 'description', 'reviews_count']
+
+    def get_reviews_count(self, obj):
+        count = Review.objects.filter(product=obj).count()
+        return self.get_reviews_declension(count)
+    
+    def get_reviews_declension(self, count):
+        if count == 1:
+            return f"{count} отзыв"
+        elif 2 <= count <= 4:
+            return f"{count} отзыва"
+        else:
+            return f"{count} отзывов"
 
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
