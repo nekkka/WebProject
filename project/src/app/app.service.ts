@@ -14,6 +14,6 @@ export class AppService {
     return this.client.get<Category[]>(`http://127.0.0.1:8000/flower/categories/`);
   }
   getProductsByCategoryId(categoryId: number): Observable<Product[]> {
-    return this.client.get<Product[]>(`http://127.0.0.1:8000/flower/products/?category_id=${categoryId}`);
+    return this.client.get<Product[]>(`http://127.0.0.1:8000/categories/${categoryId}/products/`);
   }
 }

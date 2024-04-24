@@ -1,6 +1,6 @@
 
 from django.urls import path
-from .views import UserRegisterView, UserLoginView, TokenRefreshView, product_list, ProductDetailView, CategoryListCreateView, CategoryDetailView, review_list, review_detail, cart_add, cart_checkout
+from .views import *
 
 urlpatterns = [
     path('register/', UserRegisterView.as_view(), name='register'),
@@ -14,4 +14,5 @@ urlpatterns = [
     path('reviews/<int:pk>/', review_detail, name='review-detail'),
     path('cart/add/', cart_add, name='cart_add'),
     path('cart/checkout/', cart_checkout, name='cart_checkout'),
+    path('categories/<int:category_id>/products/', product_list_by_category, name='product-list-by-category'),
 ]

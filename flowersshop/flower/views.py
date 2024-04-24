@@ -90,7 +90,11 @@ def product_list(request):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
+def product_list_by_category(request, category_id):
+    if request.method == 'GET':
+        products = Product.objects.filter(category_id=category_id)
+        serializer = ProductSerializer(products, many=True)
+        return Response(serializer.data)
 
 @api_view(['GET', 'POST'])
 def review_list(request, product_id):
