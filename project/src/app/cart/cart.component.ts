@@ -21,5 +21,16 @@ export class CartComponent implements OnInit {
       next: (items) => this.items = items,
       error: (error) => console.error('Error fetching cart items', error)
     });
+  } 
+  checkout(): void {
+    this.cartService.checkout().subscribe({
+      next: (response) => {
+        console.log('Checkout successful:', response);
+      },
+      error: (error) => {
+        console.error('Checkout failed:', error);
+      }
+    });
   }
+
 }
