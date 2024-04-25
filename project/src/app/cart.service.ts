@@ -64,7 +64,7 @@ export class CartService {
         'Authorization': `Bearer ${accessToken}`
       });
   
-      return this.http.post(this.cart_checkout_url, { headers: headers, withCredentials: true });
+      return this.http.post(this.cart_checkout_url,{}, { headers: headers, withCredentials: true });
     }
 
 }
