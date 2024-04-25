@@ -25,9 +25,11 @@ export class CartComponent implements OnInit {
   checkout(): void {
     this.cartService.checkout().subscribe({
       next: (response) => {
+        alert("Checkout successful");
         console.log('Checkout successful:', response);
       },
       error: (error) => {
+        alert("Checkout failed");
         console.error('Checkout failed:', error);
       }
     });
